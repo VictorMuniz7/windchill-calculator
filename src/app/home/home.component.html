@@ -1,0 +1,60 @@
+<div class="back">
+  <header>
+    <h1 class="title">Wind chill</h1>
+    <h1 class="title-2">Calculator</h1>
+  </header>
+
+  <div class="container">
+    <div class="input-div">
+      <div class="input">
+        <p>Air temperature</p>
+        <input type="number" [(ngModel)]="airTemperature" (input)="calculate()">
+      </div>
+
+      <div class="select-div">
+        <input type="radio" name="temp" value="celsius" id="celsius" [(ngModel)]="selectedTemp" (change)="calculate()"/>
+        <label for="celsius"><span class="material-symbols-outlined">{{ selectedTemp === 'celsius' ? 'cloud_done' : 'cloud'}}</span> °C</label>
+      </div>
+
+      <div class="select-div">
+        <input type="radio" name="temp" value="fahrenheit" id="fahrenheit" [(ngModel)]="selectedTemp" (change)="calculate()"/>
+        <label for="fahrenheit"><span class="material-symbols-outlined">{{ selectedTemp === 'fahrenheit' ? 'cloud_done' : 'cloud'}}</span> °F</label>
+      </div>
+
+    </div>
+
+    <div class="input-div">
+      <div class="input">
+        <p>Wind speed</p>
+        <input type="number" [(ngModel)]="windSpeed" (input)="calculate()">
+      </div>
+
+      <div class="select-div">
+        <input type="radio" name="speed" value="k/h" id="k/h" [(ngModel)]="selectedSpeed" (change)="calculate()"/>
+        <label for="k/h"><span class="material-symbols-outlined">{{ selectedSpeed === 'k/h' ? 'cloud_done' : 'cloud'}}</span> k/h</label>
+      </div>
+
+      <div class="select-div">
+        <input type="radio" name="speed" value="mph" id="mph" [(ngModel)]="selectedSpeed" (change)="calculate()"/>
+        <label for="mph"><span class="material-symbols-outlined">{{ selectedSpeed === 'mph' ? 'cloud_done' : 'cloud'}}</span> mph</label>
+      </div>
+    </div>
+
+    <p class="warn">The wind chill calculator only works for
+      <span [style.color]="invalidTemperature === false ? 'black' : 'red'">temperatures at or below 50 ° F</span>and
+      <span [style.color]="invalidSpeed === false ? 'black' : 'red'">wind speeds above 3 mph.</span>
+    </p>
+
+    <div class="result-div">
+      <p>Wind chill</p>
+      <input type="text" [(ngModel)]="visibleResultInCelsius" readonly> °C <br>
+      <input type="text"[(ngModel)]="visibleResultInFahrenheit" readonly> °F
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/VictorMuniz7" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/victor-muniz-236842267/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+
+  </div>
+</div>
