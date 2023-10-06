@@ -34,7 +34,7 @@ export class HomeComponent {
       temperature = this.selectedTemp === 'celsius' ? this.airTemperature : (this.airTemperature - 32) * 5/9;
       speed = this.selectedSpeed === 'k/h' ? this.windSpeed : this.windSpeed * 1.609;
 
-      if(temperature > 50){
+      if(temperature > 10){
         this.invalidTemperature = true;
       }else{
         this.invalidTemperature = false;
